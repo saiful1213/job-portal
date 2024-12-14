@@ -8,76 +8,52 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator";
-import { FaGithub } from "react-icons/fa6";
-import { FaGoogle } from "react-icons/fa6";
-import { Link } from "react-router";
-import { EyeClosed } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router";
+import { Eye, EyeClosed } from "lucide-react";
+import Lottie from "lottie-react";
+import logLottie from "../../assets/lottie/login.json"
+import { useContext, useState } from "react";
+import AuthContext from "@/context/AuthContext/AuthContext";
+import toast from "react-hot-toast";
+import SocialLogin from "@/components/SocialLogin/SocialLogin";
 
 
 const Login = () => {
-    // const { handleLogInUser, handleGoogleSignIn, handleGithubSignIn } = useContext(AuthContext);
-    // const [showPassword, setShowPassword] = useState(false);
-    // const navigate = useNavigate();
-    // const { state } = useLocation();
+    const { handleLogInUser } = useContext(AuthContext);
+    const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
+    const { state } = useLocation();
 
-    // const handleLogin = e => {
-    //     e.preventDefault();
-    //     const form = e.target;
-    //     const email = form.email.value;
-    //     const password = form.password.value;
+    const handleLogin = e => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
 
-    //     handleLogInUser(email, password)
-    //         .then(() => {
-    //             toast.success('login success');
-    //             navigate(state ? state : '/')
-    //         })
-    //         .catch(err => {
-    //             toast.error(err.message)
-    //         })
-    // }
+        handleLogInUser(email, password)
+            .then((result) => {
+                console.log(result?.user)
+                toast.success('login success');
+                navigate(state ? state : '/')
+            })
+            .catch(err => {
+                toast.error(err.message)
+            })
+    }
 
-    // const handleGoogle = () => {
-    //     handleGoogleSignIn()
-    //         .then(() => {
-    //             toast.success('login success');
-    //             navigate(state ? state : '/');
-    //         })
-    //         .catch(err => {
-    //             toast.error(err.message);
-    //         })
-    // }
-
-    // const handleGithub = () => {
-    //     handleGithubSignIn()
-    //         .then(() => {
-    //             toast.success('login success');
-    //             navigate(state ? state : '/');
-    //         })
-    //         .catch(err => {
-    //             toast.error(err.message);
-    //         })
-    // }
 
     return (
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-5xl flex flex-col md:flex-row gap-12 *:md:w-1/2 items-center">
             <Card className="mx-auto max-w-md my-12">
                 <CardHeader className="text-center">
                     <CardTitle className="text-3xl font-bold">Login</CardTitle>
                     <CardDescription>Enter your email below to login to your account</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <div className="flex justify-center gap-3 ">
-                        <Button size="lg" variant="outline"> <FaGoogle />Google</Button>
-                        <Button size="lg" variant="outline"> <FaGithub />Github</Button>
-                    </div>
-                    <div className="flex my-5 items-center gap-2">
-                        <Separator className="flex-1"></Separator>
-                        <p className="text-muted-foreground text-sm">Or continue with</p>
-                        <Separator className="flex-1"></Separator>
-                    </div>
 
-                    <form>
+                    <SocialLogin />
+
+                    <form onSubmit={handleLogin}>
                         <div className="grid gap-4">
 
                             <div className="grid gap-2">
@@ -100,15 +76,15 @@ const Login = () => {
                                 </div>
                                 <Input
                                     id="password"
-                                    type='password'
+                                    type={!showPassword ? 'password' : 'text'}
                                     name="password"
                                     placeholder="......"
                                     required
                                     className="placeholder:text-xl placeholder:font-bold" />
                                 <div
-
+                                    onClick={() => setShowPassword(!showPassword)}
                                     className="absolute right-1 top-8 border p-1 cursor-pointer">
-                                    <EyeClosed size={'20px'} />
+                                    {!showPassword ? <Eye size={'20px'} /> : <EyeClosed size={'20px'} />}
                                 </div>
                             </div>
 
@@ -126,6 +102,9 @@ const Login = () => {
                     </div>
                 </CardContent>
             </Card>
+            <div>
+                <Lottie animationData={logLottie} loop={true} className="w-1/2 mx-auto" />
+            </div>
         </div>
     )
 }

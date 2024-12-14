@@ -1,8 +1,13 @@
+import Banner from "./Banner";
+import Category from "./Category";
+import HotJobs from "./HotJobs";
 
 const Home = () => {
     return (
         <div>
-            <h1 className='text-2xl font-bold'>Home </h1>
+            <Banner />
+            <Category />
+            <HotJobs />
         </div>
     )
 }

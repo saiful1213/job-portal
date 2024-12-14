@@ -47,7 +47,7 @@ const Footer = () => {
             </div>
 
             <div className="text-center pt-8 border-t mt-8">
-                <p className="mt-4 font-medium text-black/70">© 2022 - 2028 All rights reserved by CineHub. Developed By -
+                <p className="mt-4 font-medium text-black/70">© 2022 - 2028 All rights reserved by Job Box. Developed By -
                     <a target={'_blank'} href={`https://www.facebook.com/saifulislamptc1213`}>
                         Saiful Islam.
                     </a>

@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Software",
+        "icon": "FaLightbulb",
+        "jobsAvailable": 1856
+    },
+    {
+        "id": 2,
+        "name": "Marketing",
+        "icon": "FaBullhorn",
+        "jobsAvailable": 1240
+    },
+    {
+        "id": 3,
+        "name": "Finance",
+        "icon": "FaDollarSign",
+        "jobsAvailable": 870
+    },
+    {
+        "id": 4,
+        "name": "Healthcare",
+        "icon": "FaHeartbeat",
+        "jobsAvailable": 650
+    },
+    {
+        "id": 5,
+        "name": "Education",
+        "icon": "FaBook",
+        "jobsAvailable": 430
+    },
+    {
+        "id": 6,
+        "name": "Engineering",
+        "icon": "FaCogs",
+        "jobsAvailable": 1090
+    },
+    {
+        "id": 7,
+        "name": "Retail",
+        "icon": "FaShoppingCart",
+        "jobsAvailable": 540
+    },
+    {
+        "id": 8,
+        "name": "Construction",
+        "icon": "FaHardHat",
+        "jobsAvailable": 750
+    },
+    {
+        "id": 9,
+        "name": "Design",
+        "icon": "FaPencilRuler",
+        "jobsAvailable": 320
+    },
+    {
+        "id": 10,
+        "name": "Legal",
+        "icon": "FaBalanceScale",
+        "jobsAvailable": 290
+    }
+]
