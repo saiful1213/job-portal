@@ -1,20 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const JobDetails = () => {
     const job = useLoaderData();
     const {
         _id,
         title,
-        location,
-        jobType,
-        category,
         applicationDeadline,
-        salaryRange,
-        requirements,
-        description,
         company,
-        company_logo,
     } = job;
 
     return (
@@ -22,7 +15,9 @@ const JobDetails = () => {
             <h1 className='text-2xl font-bold'>Job detail for {title}</h1>
             <p>apply for: {company}</p>
             <p>deadline: {applicationDeadline}</p>
-            <Button className="bg-blue-600">Apply Now</Button>
+            <Link to={`/jobApply/${_id}`}>
+                <Button className="bg-blue-600">Apply Now</Button>
+            </Link>
         </div>
     )
 }

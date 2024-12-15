@@ -8,7 +8,7 @@ const NavLinks = ({ isSmallDevie }) => {
 
     const links = [
         { id: 1, name: 'Home', path: '/', icon: <IoHome /> },
-        { id: 2, name: 'All Movies', path: '/all-movies', icon: <MdLocalMovies /> },
+        { id: 2, name: 'My Applications', path: '/my-applications', icon: <MdLocalMovies /> },
         { id: 3, name: 'Add Movie ', path: '/add-movie', icon: <MdOutlineAddToPhotos /> },
         { id: 4, name: 'My Favorites', path: '/my-favourites', icon: <Star /> },
         { id: 5, name: 'Contacts', path: '/contacts', icon: <MdContacts /> },
